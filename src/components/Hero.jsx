@@ -6,7 +6,7 @@ import { useTypewriter, Cursor } from "react-simple-typewriter";
 import { useContext, useEffect } from "react";
 import { useInView } from "react-intersection-observer";
 import Link from "next/link";
-import Socials from "./Socials";
+import { BiSolidDownload } from "react-icons/bi";
 
 const Hero = () => {
   const { setActive } = useContext(ActiveContext);
@@ -63,25 +63,26 @@ const Hero = () => {
                   React (Next js)
                 </span>
               </h3>
-              <div className="flex gap-2 pt-1">
+              <div className="flex gap-2 pt-1 items-center">
                 <Link
                   href={"#contact"}
                   className=" py-1 px-2 rounded-full  bg-[#1a1a1a] dark:bg-slate-200 text-slate-300 dark:text-[#1a1a1a] hover:text-[#1a1a1a] dark:hover:text-slate-200 hover:bg-slate-200 dark:hover:bg-[#1a1a1a] border hover:border-[#1a1a1a] dark:border-slate-200 transition-all duration-500"
                 >
                   Contact Me
                 </Link>
-                <Link
-                  href={"#projects"}
-                  className="py-1 px-2 bg-white rounded-full dark:bg-[#1a1a1a] border border-[#1a1a1a] dark:border-white"
+                <a
+                  href="/resume.pdf"
+                  download={true}
+                  className="py-1 px-3 flex items-center group bg-white rounded-full dark:bg-[#1a1a1a] border border-[#1a1a1a] dark:border-white"
                 >
-                  Projects
-                </Link>
+                  Resume{" "}
+                  <BiSolidDownload className="group-hover:translate-y-1 transition-all" />
+                </a>
               </div>
             </div>
           </motion.div>
         </div>
       </div>
-      {/* <Socials /> */}
     </section>
   );
 };
